@@ -1,4 +1,4 @@
-import { text, timestamp, pgTable, pgEnum } from "drizzle-orm/pg-core";
+import { text, timestamp, pgTable } from "drizzle-orm/pg-core";
 import { createId } from "@paralleldrive/cuid2";
 import { users } from "./users";
 import { relations } from "drizzle-orm";
