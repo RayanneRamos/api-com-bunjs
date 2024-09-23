@@ -2,6 +2,7 @@ import { integer, pgEnum, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { createId } from "@paralleldrive/cuid2";
 import { orderItems, restaurants, users } from ".";
 import { relations } from "drizzle-orm";
+
 export const orderStatusEnum = pgEnum("order_status", [
   "pending",
   "processing",
