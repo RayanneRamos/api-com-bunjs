@@ -43,6 +43,20 @@
       "when": 1726860234086,
       "tag": "0005_blushing_ink",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1727118204078,
+      "tag": "0006_right_unicorn",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1727119979056,
+      "tag": "0007_broad_darkstar",
+      "breakpoints": true
     }
   ]
 }
