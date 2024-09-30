@@ -23,6 +23,7 @@ import { createEvaluation } from "./routes/create-evaluation";
 import { getEvaluations } from "./routes/get-evaluations";
 import { registerCustomer } from "./routes/register-customer";
 import { updateMenu } from "./routes/update-menu";
+import { updateProfile } from "./routes/update-profile";
 
 const app = new Elysia()
   .use(cors())
@@ -49,6 +50,7 @@ const app = new Elysia()
   .use(getEvaluations)
   .use(registerCustomer)
   .use(updateMenu)
+  .use(updateProfile)
   .onError(({ code, error, set }) => {
     switch (code) {
       case "VALIDATION": {
