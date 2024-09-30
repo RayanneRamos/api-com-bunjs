@@ -20,6 +20,7 @@ import { getDailyReceiptInPeriod } from "./routes/get-daily-receipt-in-period";
 import { cors } from "@elysiajs/cors";
 import { createOrder } from "./routes/create-order";
 import { createEvaluation } from "./routes/create-evaluation";
+import { getEvaluations } from "./routes/get-evaluations";
 
 const app = new Elysia()
   .use(cors())
@@ -43,6 +44,7 @@ const app = new Elysia()
   .use(getDailyReceiptInPeriod)
   .use(createEvaluation)
   .use(createOrder)
+  .use(getEvaluations)
   .onError(({ code, error, set }) => {
     switch (code) {
       case "VALIDATION": {
