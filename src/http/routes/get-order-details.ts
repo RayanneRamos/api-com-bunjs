@@ -4,7 +4,7 @@ import { UnauthorizedError } from "../errors/unauthorized-error";
 import { db } from "../../db/connection";
 
 export const getOrderDetails = new Elysia().use(auth).get(
-  "/order/:orderId",
+  "/orders/:orderId",
   async ({ getCurrentUser, params, set }) => {
     const { orderId } = params;
     const { restaurantId } = await getCurrentUser();
