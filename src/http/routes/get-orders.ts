@@ -12,6 +12,10 @@ export const getOrders = new Elysia().use(auth).get(
     const { restaurantId } = await getCurrentUser();
     const { customerName, orderId, status, pageIndex } = query;
 
+    const processedCustomerName = customerName
+      ? customerName.replace(/\+/g, " ").trim()
+      : undefined;
+
     if (!restaurantId) {
       throw new UnauthorizedError();
     }
@@ -31,7 +35,9 @@ export const getOrders = new Elysia().use(auth).get(
           eq(orders.restaurantId, restaurantId),
           orderId ? ilike(orders.id, `%${orderId}%`) : undefined,
           status ? eq(orders.id, status) : undefined,
-          customerName ? ilike(users.name, `%${customerName}%`) : undefined
+          customerName
+            ? ilike(users.name, `%${processedCustomerName}%`)
+            : undefined
         )
       );
 

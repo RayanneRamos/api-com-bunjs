@@ -6,7 +6,7 @@ import { eq } from "drizzle-orm";
 import { orders } from "../../db/schema";
 
 export const cancelOrder = new Elysia().use(auth).patch(
-  "/order/:orderId/cancel",
+  "/orders/:orderId/cancel",
   async ({ getCurrentUser, set, params }) => {
     const { orderId } = params;
     const { restaurantId } = await getCurrentUser();

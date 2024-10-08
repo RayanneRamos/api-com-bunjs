@@ -2,6 +2,7 @@ import Elysia, { t } from "elysia";
 import { auth } from "../auth";
 import { UnauthorizedError } from "../errors/unauthorized-error";
 import { db } from "../../db/connection";
+import { and } from "drizzle-orm";
 
 export const getOrderDetails = new Elysia().use(auth).get(
   "/orders/:orderId",
@@ -43,7 +44,7 @@ export const getOrderDetails = new Elysia().use(auth).get(
           },
         },
       },
-      where(fields, { eq, and }) {
+      where(fields, { eq }) {
         return and(
           eq(fields.id, orderId),
           eq(fields.restaurantId, restaurantId)
@@ -53,6 +54,7 @@ export const getOrderDetails = new Elysia().use(auth).get(
 
     if (!order) {
       set.status = 400;
+
       return { message: "Order not found." };
     }
 
